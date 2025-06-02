@@ -1,5 +1,7 @@
 package com.task.project.taskproject.entity;
 
+import com.task.project.taskproject.enums.PriorityEnum;
+import com.task.project.taskproject.enums.StatusEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,10 +24,10 @@ public class Task {
     private String description;
 
     @Column(name = "status")
-    private String status;
+    private StatusEnum status;
 
     @Column(name = "priority")
-    private String priority;
+    private PriorityEnum priority;
 
     @Column(name = "due_date")
     private LocalDate dueDate;
@@ -34,8 +36,8 @@ public class Task {
     @JoinColumn(name = "user_id")
     private User user;
 
-//    @ManyToOne
-//    @JoinColumn(name = "category_id")
-//    private Category category;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
 }
